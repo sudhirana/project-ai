@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+
+  api:
+    build: .
+    container_name: insurance_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - .:/app
+    environment:
+      - DB_PATH=/app/data/insurance_leads.db
+    restart: unless-stopped
+
+  frontend:
+    image: python:3.11-slim
+    container_name: insurance_frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    command: python -m http.server 3000
+    depends_on:
+      - api
+    restart: unless-stopped
