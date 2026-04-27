@@ -35,8 +35,8 @@ uvicorn api.app:app --reload
 ```
 
 ## 📁 Project Structure
-├── api/              # FastAPI routers + Pydantic schemas
 ├── facade/           # LeadManagementFacade (entry point)
+├── api/              # FastAPI routers + Pydantic schemas
 ├── services/         # Business logic
 ├── repositories/     # Data access layer
 ├── models/           # Domain models
@@ -49,5 +49,7 @@ uvicorn api.app:app --reload
 
 ## 🧪 Run Tests
 ```bash
-pytest tests/ -v
 ```
+pytest tests/ -v
+
+## change in read me
